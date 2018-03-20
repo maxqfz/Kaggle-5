@@ -7,22 +7,22 @@
 
 ### Необходимые файлы:
 
-**Cuda 8** 
-https://developer.nvidia.com/cuda-80-ga2-download-archive
+####Cuda 8
+*https://developer.nvidia.com/cuda-80-ga2-download-archive
 *Сама CUDA - https://developer.nvidia.com/compute/cuda/8.0/Prod2/local_installers/cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb
 *Патч к ней - https://developer.nvidia.com/compute/cuda/8.0/Prod2/patches/2/cuda-repo-ubuntu1604-8-0-local-cublas-performance-update_8.0.61-1_amd64-deb
 
-**CudNN 5.1**
+####CudNN 5.1
 *Здесь https://developer.nvidia.com/compute/machine-learning/cudnn/secure/v5.1/prod_20161129/8.0/cudnn-8.0-linux-x64-v5.1-tgz
 *Либо здесь https://github.com/RashmiTiwari132/CUDNN/raw/master/cudnn-8.0-linux-x64-v5.1.tgz
 
-**Tensorflow**
+####Tensorflow
 
 
 ### Подготовка окружения:
 
 **Cuda Toolkit**
-````
+```
 sudo dpkg -i cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64.deb
 sudo dpkg -i cuda-repo-ubuntu1604-8-0-local-cublas-performance-update_8.0.61-1_amd64-deb
 sudo apt-get install cuda
