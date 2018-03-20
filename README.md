@@ -18,6 +18,7 @@
 
 #### Tensorflow
 * https://github.com/pfillard/tensorflow/tree/r1.0_relu1
+* Какая-то неведомая хрень от Андрюхи https://github.com/pfillard/utilities
 
 ### Подготовка окружения:
 
