@@ -17,18 +17,18 @@
 *Либо здесь https://github.com/RashmiTiwari132/CUDNN/raw/master/cudnn-8.0-linux-x64-v5.1.tgz
 
 #### Tensorflow
-
+*https://github.com/pfillard/tensorflow/tree/r1.0_relu1
 
 ### Подготовка окружения:
 
-**Cuda Toolkit**
+#### Cuda Toolkit
 ```
 sudo dpkg -i cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64.deb
 sudo dpkg -i cuda-repo-ubuntu1604-8-0-local-cublas-performance-update_8.0.61-1_amd64-deb
 sudo apt-get install cuda
 ```
 
-**CudNN**
+#### CudNN
 ```
 tar xvzf cudnn-8.0-linux-x64-v5.1-ga.tgz
 sudo cp -P cuda/include/cudnn.h /usr/local/cuda/include/
@@ -36,12 +36,12 @@ sudo cp -P cuda/lib64/libcudnn* /usr/local/cuda/lib64/
 sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
 ```
 
-**Python**
+#### Python
 ```
 sudo apt-get install python3 python3-numpy python3-dev python3-wheel python3-mock
 ```
 
-**Python dependencies**
+#### Python dependencies
 ```
 sudo pip3 install numpy
 sudo pip3 install scipy
@@ -52,26 +52,12 @@ sudo pip3 install h5py
 sudo pip3 install argparse
 ```
 
-**Other dependencies**
+#### Other dependencies
 ```
 sudo apt-get install libcupti-dev
 ```
 
 ### Установка Tensorflow
-
-
-
-
-
-
-
-
-
-
-
-
-
-2. установка tensorflow r1.0_relu1 (здесь проблемы)
   - https://github.com/pfillard/tensorflow/tree/r1.0_relu1
   - https://www.tensorflow.org/install/install_sources
   - для того чтобы установить нужна програмка `bazel-0.4.5-installer-linux-x86_64.sh` качал через релиз на гите https://github.com/bazelbuild/bazel/releases/tag/0.4.5 (у меня получилось скачать только через свой пк, выложить на яндекс диск и скачать на сервер через `wget link -O bazel.zip` и потом `unzip bazel.zip`. Этот сайт поможет скачать на яндекс диск через ссылкy https://getfile.dokpub.com/yandex/)
