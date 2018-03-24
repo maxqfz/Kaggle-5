@@ -16,33 +16,44 @@
 * Здесь https://developer.nvidia.com/compute/machine-learning/cudnn/secure/v5.1/prod_20161129/8.0/cudnn-8.0-linux-x64-v5.1-tgz
 * Либо здесь https://github.com/RashmiTiwari132/CUDNN/raw/master/cudnn-8.0-linux-x64-v5.1.tgz
 
-#### Tensorflow
+#### Патченый Tensorflow
 * https://github.com/pfillard/tensorflow/tree/r1.0_relu1
-* Какая-то неведомая хрень от Андрюхи https://github.com/pfillard/utilities
 
 ### Подготовка окружения:
 
 #### Cuda Toolkit
 ```
 sudo dpkg -i cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64.deb
-sudo dpkg -i cuda-repo-ubuntu1604-8-0-local-cublas-performance-update_8.0.61-1_amd64-deb
+sudo dpkg -i cuda-repo-ubuntu1604-8-0-local-cublas-performance-update_8.0.61-1_amd64.deb
+sudo apt-get update
 sudo apt-get install cuda
 ```
 
 #### CudNN
 ```
-tar xvzf cudnn-8.0-linux-x64-v5.1-ga.tgz
+tar xvzf cudnn-8.0-linux-x64-v5.1.tgz
 sudo cp -P cuda/include/cudnn.h /usr/local/cuda/include/
 sudo cp -P cuda/lib64/libcudnn* /usr/local/cuda/lib64/
 sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
 ```
 
-#### Python
+#### NVIDIA CUDA Profile Tools Interface
 ```
-sudo apt-get install python3 python3-numpy python3-dev python3-wheel python3-mock
+sudo apt-get install libcupti-dev
 ```
 
-#### Python dependencies
+#### Установка переменных сред
+```
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64"
+export CUDA_HOME=/usr/local/cuda
+```
+
+#### Python
+```
+sudo apt-get install python3 python3-numpy python3-dev python3-pip python3-wheel python3-mock
+```
+
+#### Пакеты Python
 ```
 sudo pip3 install numpy
 sudo pip3 install scipy
@@ -51,11 +62,6 @@ sudo pip3 install scikit-image
 sudo pip3 install SimpleITK
 sudo pip3 install h5py
 sudo pip3 install argparse
-```
-
-#### Other dependencies
-```
-sudo apt-get install libcupti-dev
 ```
 
 ### Установка Tensorflow
