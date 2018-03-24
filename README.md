@@ -16,6 +16,9 @@
 * Здесь https://developer.nvidia.com/compute/machine-learning/cudnn/secure/v5.1/prod_20161129/8.0/cudnn-8.0-linux-x64-v5.1-tgz
 * Либо здесь https://github.com/RashmiTiwari132/CUDNN/raw/master/cudnn-8.0-linux-x64-v5.1.tgz
 
+#### Bazel 0.4.2
+* Здесь https://github.com/bazelbuild/bazel/releases/download/0.4.2/bazel-0.4.2-installer-linux-x86_64.sh
+
 #### Патченый Tensorflow
 * https://github.com/pfillard/tensorflow/tree/r1.0_relu1
 
@@ -64,15 +67,23 @@ sudo pip3 install h5py
 sudo pip3 install argparse
 ```
 
-### Установка Tensorflow
-  - https://github.com/pfillard/tensorflow/tree/r1.0_relu1
-  - https://www.tensorflow.org/install/install_sources
-  - для того чтобы установить нужна програмка `bazel-0.4.5-installer-linux-x86_64.sh` качал через релиз на гите https://github.com/bazelbuild/bazel/releases/tag/0.4.5 (у меня получилось скачать только через свой пк, выложить на яндекс диск и скачать на сервер через `wget link -O bazel.zip` и потом `unzip bazel.zip`. Этот сайт поможет скачать на яндекс диск через ссылкy https://getfile.dokpub.com/yandex/)
-  - кратко: качаем с гита, переходим на ветку, конфигурируем `./configure`, дальше надо скомпилировать `.whl` файл через `bazel build ...` и установить библиотеку через `pip3 `
-  - при компиляции возникает ошибка: 
-  ```
-bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package
-INFO: Found 1 target...
-[285 / 2,349] Still waiting for 200 jobs to complete:
-Server terminated abruptly (error code: 14, error message: '', log file: '/root/.cache/bazel/_bazel_root/4d4b5309430ecf8c638c52fba28ae6e2/server/jvm.out')
-  ```
+#### Bazel
+```
+chmod +x bazel-0.4.2-installer-linux-x86_64.sh
+sudo ./bazel-0.4.2-installer-linux-x86_64.sh
+```
+
+### Сборка и установка Tensorflow
+```
+./configure
+```
+На первый вопрос указываем путь к третьему питону, далее просто Enter до вопроса про поддержку CUDA. На него отвечаем Y и нажимаем Enter до конца.
+
+```
+bazel build -c opt --config=cuda //tensorflow/tools/pip_package:build_pip_package
+bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
+sudo pip install /tmp/tensorflow_pkg/tensorflow-1.0.0rc0*
+```
+
+### Запуск кеггла
+...
