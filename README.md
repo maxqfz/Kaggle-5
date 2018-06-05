@@ -4,25 +4,30 @@
 * Автор kaggle: https://github.com/pfillard/tpx-kaggle-dsb2017
 * Как установить Cuda и CudNN: https://medium.com/@ikekramer/installing-cuda-8-0-and-cudnn-5-1-on-ubuntu-16-04-6b9f284f6e77
 * Датасеты https://www.kaggle.com/c/data-science-bowl-2017/data
+* Собранное окружение для ДВК лежит у нас в гите в папке environment (архив .tar.gz, разбитый на 5 частей)
 
 ### Необходимые файлы:
 
 #### Cuda 8
 * https://developer.nvidia.com/cuda-80-ga2-download-archive
-* Сама CUDA - https://developer.nvidia.com/compute/cuda/8.0/Prod2/local_installers/cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb
-* Патч к ней - https://developer.nvidia.com/compute/cuda/8.0/Prod2/patches/2/cuda-repo-ubuntu1604-8-0-local-cublas-performance-update_8.0.61-1_amd64-deb
+* Сама CUDA - https://developer.nvidia.com/compute/cuda/8.0/Prod2/local_installers/cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64-deb (для x64)
+* Патч к ней - https://developer.nvidia.com/compute/cuda/8.0/Prod2/patches/2/cuda-repo-ubuntu1604-8-0-local-cublas-performance-update_8.0.61-1_amd64-deb (для x64)
 
 #### CudNN 5.1
-* Здесь https://developer.nvidia.com/compute/machine-learning/cudnn/secure/v5.1/prod_20161129/8.0/cudnn-8.0-linux-x64-v5.1-tgz
-* Либо здесь https://github.com/RashmiTiwari132/CUDNN/raw/master/cudnn-8.0-linux-x64-v5.1.tgz
+* Здесь https://developer.nvidia.com/compute/machine-learning/cudnn/secure/v5.1/prod_20161129/8.0/cudnn-8.0-linux-x64-v5.1-tgz (для x64)
+* Либо здесь https://github.com/RashmiTiwari132/CUDNN/raw/master/cudnn-8.0-linux-x64-v5.1.tgz (для x64)
+* Либо здесь https://github.com/maxqfz/Kaggle-5/raw/master/packages/cudnn-8.0-linux-ppc64le-v5.1.tgz (для PowerPC)
 
 #### Bazel 0.4.2
 * Здесь https://github.com/bazelbuild/bazel/releases/download/0.4.2/bazel-0.4.2-installer-linux-x86_64.sh
+* Исходник https://github.com/maxqfz/Kaggle-5/raw/master/packages/bazel-0.4.2-dist.zip
 
 #### Патченый Tensorflow
 * https://github.com/pfillard/tensorflow/tree/r1.0_relu1
+* Собранный для x64, CC3.0 - https://github.com/maxqfz/Kaggle-5/raw/master/packages/tensorflow-1.0.0rc0-cp35-cp35m-linux_x86_64.whl
+* Собранный для PowerPC, CC6.0 - https://github.com/maxqfz/Kaggle-5/raw/master/packages/tensorflow-1.0.0rc0-cp36-cp36m-linux_ppc64le.whl
 
-### Подготовка окружения:
+### Подготовка окружения (на примере x64, аналогично только с другими пакетами для PowerPC):
 
 #### Cuda Toolkit
 ```
@@ -86,4 +91,5 @@ sudo pip install /tmp/tensorflow_pkg/tensorflow-1.0.0rc0*
 ```
 
 ### Запуск кеггла
-...
+*Перед запуском кеггла на ДВК установите переменное окружение командой `source ~/Kaggle5/2setenvvars.source`*
+Запуск кеггла на получение результатов python3 -m ~/Kaggle5/tpx-kaggle-dsb2017/predict.py -I [CSV с сэмплами] -d [Путь до итогового файла]
