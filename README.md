@@ -92,4 +92,7 @@ sudo pip install /tmp/tensorflow_pkg/tensorflow-1.0.0rc0*
 
 ### Запуск кеггла
 *Перед запуском кеггла на ДВК установите переменное окружение командой `source ~/Kaggle5/2setenvvars.source`*
-Запуск кеггла на получение результатов python3 -m ~/Kaggle5/tpx-kaggle-dsb2017/predict.py -I [CSV с сэмплами] -d [Путь до итогового файла]
+Запуск кеггла - `python3 -m ~/Kaggle5/tpx-kaggle-dsb2017/predict.py -i [CSV с сэмплами] -d [Папка для конв. серий]`:
+* -i это CSV со столбцами id, cancer, где id - названия сконверченных в пару (.mhd, .raw) серий, cancer - любое число (0.5 обычно)
+* -d путь до папки со сконверченными сериями
+* Результат в ./predict_result/predictions.csv
